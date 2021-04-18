@@ -19,16 +19,11 @@
             "padding": "same",
             "data_format": "same",
             "dilation_rate": "same",
-            "groups": "same",
             "activation": "layer.activation.__name__",
             "use_bias": "same",
-            "kernel_initializer": "layer.kernel_initializer.__class__.__name__",
-            "bias_initializer": "layer.bias_initializer.__class__.__name__",
             "kernel_regularizer": "layer.kernel_regularizer.__class__.__name__",
             "bias_regularizer": "layer.bias_regularizer.__class__.__name__",
             "activity_regularizer": "layer.activity_regularizer.__class__.__name__",
-            "kernel_constraint": "layer.kernel_constraint.__class__.__name__",
-            "bias_constraint": "layer.bias_constraint.__class__.__name__"
         }
     },
     "MaxPooling2D": {
@@ -38,8 +33,7 @@
         "attributes": {
             "pool_size": "same",
             "strides": "same",
-            "padding": "same",
-            "data_format": "same"
+            "padding": "same"
         }
     },
     "Flatten": {
@@ -58,13 +52,9 @@
             "units": "same",
             "activation": "layer.activation.__name__",
             "use_bias": "same",
-            "kernel_initializer": "layer.kernel_initializer.__class__.__name__",
-            "bias_initializer": "layer.bias_initializer.__class__.__name__",
             "kernel_regularizer": "layer.kernel_regularizer.__class__.__name__",
             "bias_regularizer": "layer.bias_regularizer.__class__.__name__",
-            "activity_regularizer": "layer.activity_regularizer.__class__.__name__",
-            "kernel_constraint": "layer.kernel_constraint.__class__.__name__",
-            "bias_constraint": "layer.bias_constraint.__class__.__name__"
+            "activity_regularizer": "layer.activity_regularizer.__class__.__name__"
         }
     },
     "BatchNormalization": {
@@ -101,16 +91,10 @@
             "depth_multiplier": "same",
             "activation": "same",
             "use_bias": "same",
-            "depthwise_initializer": "same",
-            "pointwise_initializer": "same",
-            "bias_initializer": "same",
             "depthwise_regularizer": "same",
             "pointwise_regularizer": "same",
             "bias_regularizer": "same",
             "activity_regularizer": "same",
-            "depthwise_constraint": "same",
-            "pointwise_constraint": "same",
-            "bias_constraint": "same"
         },
         "format": {
           "color": "darkgreen"
