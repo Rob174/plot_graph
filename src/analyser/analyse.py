@@ -11,6 +11,7 @@ def node_str(class_name, **kargs):
     attrs_list_str = ["{%s|%s}" % (name, str(value)) for name, value in kargs.items()]
     return "%s|{%s}" % (class_name, "|".join(attrs_list_str))
 
+
 def link(g,layer,class_name,model):
     if type(layer.input) is not list and class_name != "InputLayer":
         parent = layer.input.name.split("/")[0]
@@ -20,6 +21,8 @@ def link(g,layer,class_name,model):
             g.edge(parent_layer.layers[-1].name, layer.name, label=str(layer.input_shape))
         else:
             g.edge(parent, layer.name, label=str(layer.input_shape))
+
+
 def add_nodes(g,model,personalized_layers,default_layers,subgraph=False,skip_modules=False):
     ## Construction du graph graphviz à l'aide des layers keras
     for i,layer in enumerate(model.layers):
@@ -53,6 +56,7 @@ def add_nodes(g,model,personalized_layers,default_layers,subgraph=False,skip_mod
         chaine_graphviz = node_str(class_name, **attributes_to_show)
         g.node(layer.name, label=chaine_graphviz, shape="record", **dico_access[class_name]["format"])
         link(g,layer,class_name,model)
+
 
 def plot_model(model: Model,output_path,path_personnalizations=None):
     g = Digraph(format="png")
