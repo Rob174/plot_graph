@@ -60,4 +60,11 @@ def plot_model(model: Model,output_path,path_personnalizations=None):
         with open("./layers.json") as f:
             personalized_layers = json.load(f)
     add_nodes(g,model,personalized_layers,default_layers)
-    g.render(output_path)
+    try:
+        g.save(output_path)
+    except:
+        pass
+    try:
+        g.render(output_path)
+    except:
+        pass
