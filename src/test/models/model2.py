@@ -1,4 +1,4 @@
-from tensorflow.keras.layers import Input,Conv2D,Dense,Flatten
+from tensorflow.keras.layers import Input,Conv2D,Dense,Flatten,Add
 from tensorflow.keras import Model
 
 

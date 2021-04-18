@@ -1,5 +1,5 @@
 from src.analyser.analyse import plot_model
-from src.test.models.model2 import create
+from src.test.models.model3 import create
 import re,os
 
 if __name__ == "__main__":

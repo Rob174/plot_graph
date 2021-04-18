@@ -12,15 +12,20 @@ def node_str(class_name, **kargs):
     return "%s|{%s}" % (class_name, "|".join(attrs_list_str))
 
 
-def link(g,layer,class_name,model):
-    if type(layer.input) is not list and class_name != "InputLayer":
-        parent = layer.input.name.split("/")[0]
+def link(g,current_layer,class_name,model):
+    parent_input = current_layer.input
+    if type(parent_input) is not list and class_name != "InputLayer":
+        parent_input = [parent_input]
+    if class_name == "InputLayer":
+        return
+    for parent_layer in parent_input:
+        parent = parent_layer.name.split("/")[0]
         parent = parent.split(":")[0]
         parent_layer = model.get_layer(parent)
         if parent_layer.__class__.__name__ == "Functional":
-            g.edge(parent_layer.layers[-1].name, layer.name, label=str(layer.input_shape))
+            g.edge(parent_layer.layers[-1].name, current_layer.name, label=str(current_layer.input_shape))
         else:
-            g.edge(parent, layer.name, label=str(layer.input_shape))
+            g.edge(parent, current_layer.name, label=str(current_layer.input_shape))
 
 
 def add_nodes(g,model,personalized_layers,default_layers,subgraph=False,skip_modules=False):
