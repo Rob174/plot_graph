@@ -1,70 +1,132 @@
 {
-  "InputLayer": {
-    "format": {
-      "color": "yellow"
+    "InputLayer": {
+        "format": {
+            "color": "yellow"
+        },
+        "attributes": {
+            "input_shape": "same",
+            "dtype": "same"
+        }
     },
-    "attributes": {
-      "input_shape": "same",
-      "dtype": "same"
-    }
-  },
-  "Conv2D": {
-    "format": {
-      "color": "green"
+    "Conv2D": {
+        "format": {
+            "color": "green"
+        },
+        "attributes": {
+            "filters": "same",
+            "kernel_size": "same",
+            "strides": "same",
+            "padding": "same",
+            "data_format": "same",
+            "dilation_rate": "same",
+            "groups": "same",
+            "activation": "layer.activation.__name__",
+            "use_bias": "same",
+            "kernel_initializer": "layer.kernel_initializer.__class__.__name__",
+            "bias_initializer": "layer.bias_initializer.__class__.__name__",
+            "kernel_regularizer": "layer.kernel_regularizer.__class__.__name__",
+            "bias_regularizer": "layer.bias_regularizer.__class__.__name__",
+            "activity_regularizer": "layer.activity_regularizer.__class__.__name__",
+            "kernel_constraint": "layer.kernel_constraint.__class__.__name__",
+            "bias_constraint": "layer.bias_constraint.__class__.__name__"
+        }
     },
-    "attributes": {
-      "filters": "same",
-      "kernel_size": "same",
-      "strides": "same",
-      "padding": "same",
-      "data_format": "same",
-      "dilation_rate": "same",
-      "groups": "same",
-      "activation": "layer.activation.__name__",
-      "use_bias": "same",
-      "kernel_initializer": "layer.kernel_initializer.__class__.__name__",
-      "bias_initializer": "layer.bias_initializer.__class__.__name__",
-      "kernel_regularizer": "layer.kernel_regularizer.__class__.__name__",
-      "bias_regularizer": "layer.bias_regularizer.__class__.__name__",
-      "activity_regularizer": "layer.activity_regularizer.__class__.__name__",
-      "kernel_constraint": "layer.kernel_constraint.__class__.__name__",
-      "bias_constraint": "layer.bias_constraint.__class__.__name__"
-    }
-  },
-  "MaxPooling2D": {
-    "format": {
-      "color": "red"
+    "MaxPooling2D": {
+        "format": {
+            "color": "red"
+        },
+        "attributes": {
+            "pool_size": "same",
+            "strides": "same",
+            "padding": "same",
+            "data_format": "same"
+        }
     },
-    "attributes": {
-      "pool_size": "same",
-      "strides": "same",
-      "padding": "same",
-      "data_format": "same"
-    }
-  },
-  "Flatten": {
-    "format": {
-      "color": "black"
+    "Flatten": {
+        "format": {
+            "color": "black"
+        },
+        "attributes": {
+            "data_format": "same"
+        }
     },
-    "attributes": {
-      "data_format": "same"
-    }
-  },
-  "Dense": {
-    "format": {
-      "color": "blue"
+    "Dense": {
+        "format": {
+            "color": "blue"
+        },
+        "attributes": {
+            "units": "same",
+            "activation": "layer.activation.__name__",
+            "use_bias": "same",
+            "kernel_initializer": "layer.kernel_initializer.__class__.__name__",
+            "bias_initializer": "layer.bias_initializer.__class__.__name__",
+            "kernel_regularizer": "layer.kernel_regularizer.__class__.__name__",
+            "bias_regularizer": "layer.bias_regularizer.__class__.__name__",
+            "activity_regularizer": "layer.activity_regularizer.__class__.__name__",
+            "kernel_constraint": "layer.kernel_constraint.__class__.__name__",
+            "bias_constraint": "layer.bias_constraint.__class__.__name__"
+        }
     },
-    "attributes": {
-      "units": "same",
-      "activation": "layer.activation.__name__",
-      "use_bias": "same",
-      "kernel_initializer": "layer.kernel_initializer.__class__.__name__",
-      "bias_initializer": "layer.bias_initializer.__class__.__name__",
-      "kernel_regularizer": "layer.kernel_regularizer.__class__.__name__",
-      "bias_regularizer": "layer.bias_regularizer.__class__.__name__",
-      "activity_regularizer": "layer.activity_regularizer.__class__.__name__",
-      "kernel_constraint": "layer.kernel_constraint.__class__.__name__",
-      "bias_constraint": "layer.bias_constraint.__class__.__name__"
+    "BatchNormalization": {
+        "attributes": {
+        },
+        "format": {
+          "color": "black"
+        }
+    },
+    "Dropout": {
+        "attributes": {
+            "rate": "same"
+        },
+        "format": {
+          "color": "black"
+        }
+    },
+    "Activation": {
+        "attributes": {
+            "activation": "layer.activation.__name__"
+        },
+        "format": {
+          "color": "purple"
+        }
+    },
+    "SeparableConv2D": {
+        "attributes": {
+            "filters": "same",
+            "kernel_size": "same",
+            "strides": "same",
+            "padding": "same",
+            "data_format": "same",
+            "dilation_rate": "same",
+            "depth_multiplier": "same",
+            "activation": "same",
+            "use_bias": "same",
+            "depthwise_initializer": "same",
+            "pointwise_initializer": "same",
+            "bias_initializer": "same",
+            "depthwise_regularizer": "same",
+            "pointwise_regularizer": "same",
+            "bias_regularizer": "same",
+            "activity_regularizer": "same",
+            "depthwise_constraint": "same",
+            "pointwise_constraint": "same",
+            "bias_constraint": "same"
+        },
+        "format": {
+          "color": "darkgreen"
+        }
+    },
+    "Add": {
+        "attributes": {},
+        "format": {
+          "color": "black"
+        }
+    },
+    "GlobalAveragePooling2D": {
+        "attributes": {
+        },
+        "format": {
+          "color": "orange"
+        }
     }
-  }
 }
