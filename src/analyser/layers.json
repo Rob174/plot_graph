@@ -94,7 +94,7 @@
             "depthwise_regularizer": "same",
             "pointwise_regularizer": "same",
             "bias_regularizer": "same",
-            "activity_regularizer": "same",
+            "activity_regularizer": "same"
         },
         "format": {
           "color": "darkgreen"
