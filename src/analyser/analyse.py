@@ -41,7 +41,7 @@ def add_nodes(g,model,personalized_layers,default_layers,subgraph=False):
         g.node(layer.name, label=chaine_graphviz, shape="record", **dico_access[class_name]["format"])
         if type(layer.input) is not list and class_name != "InputLayer":
             parent = layer.input.name.split("/")[0]
-            parent = layer.input.name.split(":")[0]
+            parent = parent.split(":")[0]
             parent_layer = model.get_layer(parent)
             if parent_layer.__class__.__name__ == "Functional":
                 g.edge(parent_layer.layers[-1].name, layer.name, label=str(layer.input_shape))
