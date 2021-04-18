@@ -23,7 +23,7 @@
             "use_bias": "same",
             "kernel_regularizer": "layer.kernel_regularizer.__class__.__name__",
             "bias_regularizer": "layer.bias_regularizer.__class__.__name__",
-            "activity_regularizer": "layer.activity_regularizer.__class__.__name__",
+            "activity_regularizer": "layer.activity_regularizer.__class__.__name__"
         }
     },
     "MaxPooling2D": {
