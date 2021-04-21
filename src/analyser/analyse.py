@@ -1,4 +1,5 @@
 import json
+import cairosvg
 import os
 
 from graphviz import Digraph
@@ -42,6 +43,8 @@ def add_nodes(g,model,personalized_layers,default_layers,subgraph=False,skip_mod
                 g.node(layer.name,label="Module",shape="component")
                 link(g,layer,class_name,model)
             continue
+        if class_name == "TensorFlowOpLayer":
+            continue
         attributes_to_show = {}
         ## Choix du fichier json contenant les informations pour afficher ce layer
         ## de préférence celui utilisateur
@@ -78,6 +81,18 @@ def plot_model(model: Model,output_path,path_personnalizations=None):
     add_nodes(g,model,personalized_layers,default_layers)
     try:
         g.save(output_path)
+        try:
+            print(os.system(f"dot -Tsvg {output_path} -o {output_path.split('.')[0]}.svg"))
+            print(f"dot -Tsvg {output_path} -o {output_path.split('.')[0]}.svg")
+            import time
+            time.sleep(2)
+            cairosvg.svg2png(url=f"{output_path.split('.')[0]}.svg",
+                             write_to=f"{output_path.split('.')[0]}.png")
+            print(f"{output_path.split('.')[0]}.png")
+            time.sleep(2)
+
+        except:
+            pass
     except:
         pass
     try:
