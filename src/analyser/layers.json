@@ -106,6 +106,18 @@
           "color": "black"
         }
     },
+    "Concatenate": {
+        "attributes": {},
+        "format": {
+          "color": "black"
+        }
+    },
+    "Multiply": {
+        "attributes": {},
+        "format": {
+          "color": "black"
+        }
+    },
     "GlobalAveragePooling2D": {
         "attributes": {
         },
