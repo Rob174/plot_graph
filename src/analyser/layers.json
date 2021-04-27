@@ -112,6 +112,12 @@
           "color": "black"
         }
     },
+    "Mish": {
+        "attributes": {},
+        "format": {
+          "color": "green"
+        }
+    },
     "Multiply": {
         "attributes": {},
         "format": {
