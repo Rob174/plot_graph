@@ -106,6 +106,18 @@
           "color": "black"
         }
     },
+    "add": {
+        "attributes": {},
+        "format": {
+          "color": "black"
+        }
+    },
+    "Lambda": {
+        "attributes": {},
+        "format": {
+          "color": "black"
+        }
+    },
     "Concatenate": {
         "attributes": {},
         "format": {

@@ -23,7 +23,7 @@ def link(g,current_layer,class_name,model):
         parent = parent_layer.name.split("/")[0]
         parent = parent.split(":")[0]
         parent_layer = model.get_layer(parent)
-        if parent_layer.__class__.__name__ == "Functional":
+        if parent_layer.__class__.__name__ == "Functional" or parent_layer.__class__.__name__ == "Model":
             g.edge(parent_layer.layers[-1].name, current_layer.name, label=str(current_layer.input_shape))
         else:
             g.edge(parent, current_layer.name, label=str(current_layer.input_shape))
@@ -33,7 +33,7 @@ def add_nodes(g,model,personalized_layers,default_layers,subgraph=False,skip_mod
     ## Construction du graph graphviz à l'aide des layers keras
     for i,layer in enumerate(model.layers):
         class_name = layer.__class__.__name__
-        if class_name == "Functional": # Si on a un sous-modèle
+        if class_name == "Functional" or class_name == "Model": # Si on a un sous-modèle
             if skip_modules is False:
                 with g.subgraph(name=f'cluster_{layer.name}' ) as g1:
                     add_nodes(g1,layer,personalized_layers,default_layers,True)
@@ -50,8 +50,10 @@ def add_nodes(g,model,personalized_layers,default_layers,subgraph=False,skip_mod
         ## de préférence celui utilisateur
         if personalized_layers is not None and class_name in personalized_layers.keys():
             dico_access = personalized_layers
-        else:
+        elif class_name in default_layers.keys():
             dico_access = default_layers
+        else:
+            continue
         ## Parcourt des attributs et récupération de leurs valeurs
         for attr_name, access in dico_access[class_name]["attributes"].items():
             if access == "same":
@@ -85,14 +87,18 @@ def plot_model(model: Model,output_path,path_personnalizations=None):
             print(os.system(f"dot -Tsvg {output_path} -o {output_path.split('.')[0]}.svg"))
             print(f"dot -Tsvg {output_path} -o {output_path.split('.')[0]}.svg")
             import time
-            time.sleep(2)
-            cairosvg.svg2png(url=f"{output_path.split('.')[0]}.svg",
-                             write_to=f"{output_path.split('.')[0]}.png")
+            time.sleep(4)
+            print(cairosvg.svg2png(url=f"{output_path.split('.')[0]}.svg",
+                             write_to=f"{output_path.split('.')[0]}.png"))
             print(f"{output_path.split('.')[0]}.png")
-            time.sleep(2)
+            time.sleep(4)
 
         except:
-            pass
+            try:
+                os.system(f"inkscape -z -f {output_path.split('.')[0]}.svg -j -e {output_path.split('.')[0]}.png")
+                time.sleep(4)
+            except:
+                pass
     except:
         pass
     try:
