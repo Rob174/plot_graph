@@ -112,6 +112,42 @@
           "color": "black"
         }
     },
+    "PReLu": {
+        "attributes": {},
+        "format": {
+          "color": "purple"
+        }
+    },
+    "SpatialDropout2D": {
+        "attributes": {
+            "rate": "same"
+        },
+        "format": {
+          "color": "black"
+        }
+    },
+    "Permute":{
+        "attributes": {
+        },
+        "format": {
+          "color": "black"
+        }
+    },
+    "ZeroPadding2D":{
+        "attributes": {
+            "padding": "same"
+        },
+        "format": {
+          "color": "black"
+        }
+    },
+    "MaxUnpooling2D": {
+        "attributes": {
+        },
+        "format": {
+          "color": "orange"
+        }
+    },
     "Lambda": {
         "attributes": {},
         "format": {
